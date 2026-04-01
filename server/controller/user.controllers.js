@@ -53,6 +53,12 @@ export const signinUser = async(req,res)=>{
 
         const token = GenerateToken(payload);
 
+        /*
+         * This Set-Cookie is scoped to the API host. Browsers do not send it to your Next.js
+         * app on another origin — that is why the client uses `client/src/app/api/auth/signin`
+         * to mirror the JWT into a first-party cookie for middleware. This line still helps
+         * same-origin API clients or server-side fetches that expect a cookie.
+         */
         res.cookie("token",token,getCookieOptions())
       return res.status(200).json({message:"user logged in successfully",token,data:userExist})
     }catch(error){
