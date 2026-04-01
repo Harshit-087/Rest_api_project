@@ -48,7 +48,8 @@ export const signinUser = async(req,res)=>{
             httpOnly:true,
             sameSite:process.env.NODE_ENV==="production"?"none":"lax",  // for cross-site origin calls
             secure:process.env.NODE_ENV==="production",
-            maxAge:1000*60*60*24
+            maxAge:1000*60*60*24,
+            path:"/"   //cookie valid for whole website
         })
       return res.status(200).json({message:"user logged in successfully",token,data:userExist})
     }catch(error){

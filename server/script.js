@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 console.log("FRONTEND_URL =", process.env.FRONTEND_URL);
 app.use(cors({
-    origin:[process.env.FRONTEND_URL],
+    origin:process.env.FRONTEND_URL,
     methods:["GET", "POST", "DELETE", "PUT", "OPTIONS"],
    allowedHeaders: ["Content-Type"],
    credentials:true
