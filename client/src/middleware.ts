@@ -5,7 +5,7 @@ import {jwtVerify} from "jose"; //IT SUPPORT web crypto
 
 
 // secret should be unit8array not string which is in jsonwebtoken
-const secret = new TextEncoder().encode(process.env.JWT_SECRET)
+const secret = new TextEncoder().encode(process.env.JWT_SECRET!)
 console.log("secret",secret)
 
 

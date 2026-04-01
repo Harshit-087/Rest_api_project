@@ -46,7 +46,7 @@ export const signinUser = async(req,res)=>{
 
         res.cookie("token",token,{
             httpOnly:true,
-            sameSite:"lax",
+            sameSite:"none",  // for cross-site origin calls
             secure:false,
             maxAge:1000*60*60*24
         })
