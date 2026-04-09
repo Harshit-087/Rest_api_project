@@ -56,7 +56,7 @@ npm run dev
 
 ## Swagger Docs
 
-http://localhost:5000/api-docs
+http://rest-api-project-xkqg.onrender.com/api-docs
 
 ## Scalability Notes
 
