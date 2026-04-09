@@ -18,7 +18,7 @@ app.set("trust proxy", 1);
 app.use(express.json());
 app.use(cookieParser());
 
-const allowedOrigins = (process.env.FRONTEND_URL || "")
+const allowedOrigins = (process.env.FRONTEND_URL || process.env.BACKEND_URL)
   .split(",")
   .map((origin) => origin.trim())
   .filter(Boolean);
