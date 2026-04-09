@@ -49,7 +49,7 @@ const counterSlice = createSlice({
        state.data.role=""
        if(typeof window !="undefined"){
         localStorage.removeItem("user")
-       
+       window.location.reload()
        }
     }
   }
