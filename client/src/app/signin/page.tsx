@@ -34,7 +34,9 @@ export default function LoginPage() {
     console.log("log in successfully",res)
     dispatch(setUser(res.data))
     // Send users directly to an authenticated page after successful signin.
-    router.push("/my-task")
+    setTimeout(()=>{
+      router.replace("/my-task")
+    },100)
   },
   onError:(error)=>{
     console.log("error in signin in",error)
