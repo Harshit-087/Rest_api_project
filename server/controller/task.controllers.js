@@ -48,17 +48,28 @@ export const fetchAllTasks= async(req,res)=>{
     }
 }
 
-export const UpdateTask=async(req,res)=>{
-    const {id} = req.params
-    const {title,description,status} = req.body
-    try{
-        const updatedTask = await Task.findByIdAndUpdate(id,{
-            $set:{title,description,status}
-        })
-        return res.status(200).json({message:"updated the task"})
-    }catch(error){
-        console.log("error in updating the task ",error)
-        return res.status(500).json({message:"internal server error",error:error.message})
-    }
-}
+export const UpdateTask = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const updatedTask = await Task.findByIdAndUpdate(
+      id,
+      req.body,
+      { new: true }
+    );
+
+    return res.status(200).json({
+      message: "updated the task",
+      updatedTask
+    });
+
+  } catch (error) {
+    console.log("error in updating the task", error);
+
+    return res.status(500).json({
+      message: "internal server error",
+      error: error.message
+    });
+  }
+};
 
